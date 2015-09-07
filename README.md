@@ -37,9 +37,9 @@ $ docker pull knqyf263/bind-auth:latest
 Alternatively you can build the image yourself.
 
 ```bash
-git clone https://github.com/knqyf263/docker-bind-auth.git
-cd docker-bind-auth
-docker build --tag $USER/bind .
+$ git clone https://github.com/knqyf263/docker-bind-auth.git
+$ cd docker-bind-auth
+$ docker build --tag $USER/bind .
 ```
 
 ## Quickstart
@@ -51,9 +51,9 @@ $ docker run --name bind -d --publish 53:53/udp knqyf263/bind-auth:latest
 ```
 
 ```bash
-$ dig @172.16.199.129 www.example.com
+$ dig @127.0.0.1 www.example.com
 
-; <<>> DiG 9.8.3-P1 <<>> @172.16.199.129 www.example.com
+; <<>> DiG 9.8.3-P1 <<>> @127.0.0.1 www.example.com
 ; (1 server found)
 ;; global options: +cmd
 ;; Got answer:
