@@ -24,3 +24,66 @@ If the above recommendations do not help then [report your issue](../../issues/n
 - The `docker run` command or `docker-compose.yml` used to start the image. Mask out the sensitive bits.
 - Please state if you are using [Boot2Docker](http://www.boot2docker.io), [VirtualBox](https://www.virtualbox.org), etc.
 
+# Getting started
+
+## Installation
+
+This image is available as a [trusted build](//hub.docker.com/r/sameersbn/bind) on the [Docker hub](//hub.docker.com) and is the recommended method of installation.
+
+```bash
+docker pull knqyf263/bind-auth:latest
+```
+
+Alternatively you can build the image yourself.
+
+```bash
+git clone https://github.com/knqyf263/docker-bind-auth.git
+cd docker-bind-auth
+docker build --tag $USER/bind .
+```
+
+## Quickstart
+
+Start BIND using:
+
+```bash
+docker run --name bind -d --publish 53:53/udp knqyf263/bind-auth:latest
+```
+
+# Maintenance
+
+## Upgrading
+
+To upgrade to newer releases:
+
+  1. Download the updated Docker image:
+
+  ```bash
+  docker pull knqyf263/bind-auth:latest
+  ```
+
+  2. Stop the currently running image:
+
+  ```bash
+  docker stop bind
+  ```
+
+  3. Remove the stopped container
+
+  ```bash
+  docker rm -v bind
+  ```
+
+  4. Start the updated image
+
+  ```bash
+  docker run -name bind -d [OPTIONS] knqyf263/bind-auth:latest
+  ```
+
+## Shell Access
+
+For debugging and maintenance purposes you may want access the containers shell. If you are using Docker version `1.3.0` or higher you can access a running containers shell by starting `bash` using `docker exec`:
+
+```bash
+docker exec -it bind bash
+```
