@@ -1,4 +1,4 @@
-FROM centos:6
+FROM centos:7
 MAINTAINER knqyf263
 
 ENV version 9.10.2-P4
@@ -40,6 +40,7 @@ RUN cd /var/named/chroot/var/named && \
 ADD ./contents/named.conf /var/named/chroot/etc/named.conf
 ADD ./contents/named /etc/sysconfig/named
 ADD ./contents/example.com.zone /var/named/chroot/var/named/example.com.zone
+ADD ./contents/zodiv.ir.zone /var/named/chroot/var/named/zodiv.ir.zone
 
 # Create symbolic link
 RUN ln -s /var/named/chroot/etc/rndc.key /etc/rndc.key && \

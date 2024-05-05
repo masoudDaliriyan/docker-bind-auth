@@ -1,0 +1,20 @@
+$ORIGIN zodiv.ir.
+$TTL 3600       ; 1 hour
+@ IN SOA ns1.zodiv.ir. postmaster.zodiv.ir. (
+        2015012902  ; serial
+        3600        ; refresh (1 hour)
+        1200        ; retry (20 min.)
+        1209600     ; expire (2 weeks)
+        900         ; minimum (15 min.)
+        )
+@       IN  NS      ns1.zodiv.ir.
+@       IN  NS      ns2.zodiv.ir.
+@       IN  MX      10 mail.zodiv.ir.
+@       IN  TXT     "v=spf1 mx ~all"    ; TXT
+@       IN  SPF     "v=spf1 mx ~all"    ; SPF
+
+ns1     IN  A       192.168.3.2
+ns2     IN  A       192.168.3.3
+mail    IN  A       192.168.3.4
+host1   IN  A       192.168.3.5
+www     IN  CNAME   host1

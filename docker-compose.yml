@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  bind9:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bind9
+    ports:
+      - '53:53/udp'
+      - '953:953/tcp'
+    networks:
+      - backend_network
+
+networks:
+  backend_network:
+    external: true
